@@ -33,15 +33,15 @@ class Distance:
         self.km += other_km
         return self
 
-    def __mul__(self, other: float) -> "Distance":
+    def __mul__(self, other: int | float) -> "Distance":
         if not isinstance(other, (int, float)):
             return NotImplemented  # type: ignore[return-value]
         return Distance(self.km * float(other))
 
-    def __rmul__(self, other: float) -> "Distance":
+    def __rmul__(self, other: int | float) -> "Distance":
         return self.__mul__(other)
 
-    def __truediv__(self, other: float) -> "Distance":
+    def __truediv__(self, other: int | float) -> "Distance":
         if not isinstance(other, (int, float)):
             return NotImplemented  # type: ignore[return-value]
         if other == 0:
